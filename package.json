@@ -1,0 +1,66 @@
+{
+  "name": "@beerush/utilities",
+  "description": "Just a simple utilities for lazy developer 🤣",
+  "version": "0.0.1",
+  "main": "dist/index.cjs",
+  "module": "dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs",
+      "import.types": "./dist/index.d.ts",
+      "require.types": "./dist/index.d.cts"
+    }
+  },
+  "directories": {
+    "dist": "dist"
+  },
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@typescript-eslint/eslint-plugin": "^7.9.0",
+    "@typescript-eslint/parser": "^7.9.0",
+    "eslint": "^9.2.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-plugin-import": "^2.29.1",
+    "prettier": "^3.2.5",
+    "publint": "^0.2.7",
+    "rimraf": "^5.0.7",
+    "tsup": "^8.0.2",
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
+  },
+  "scripts": {
+    "dev": "tsup --watch",
+    "build": "rimraf dist && tsup && publint",
+    "prepublish": "rimraf dist && tsup && publint",
+    "test": "vitest"
+  },
+  "dependencies": {
+    "@beerush/logger": "^0.0.6"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/beerush-id/utilities.git"
+  },
+  "keywords": [
+    "javascript",
+    "utilities",
+    "typescript",
+    "utilities",
+    "utils"
+  ],
+  "author": "Nanang Mahdaen El Agung <mahdaen@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/beerush-id/utilities/issues"
+  },
+  "homepage": "https://github.com/beerush-id/utilities#readme"
+}
