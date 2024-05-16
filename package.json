@@ -41,7 +41,8 @@
     "dev": "tsup --watch",
     "build": "rimraf dist && tsup && publint",
     "prepublish": "rimraf dist && tsup && publint",
-    "test": "vitest"
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "dependencies": {
     "@beerush/logger": "^0.0.6"
