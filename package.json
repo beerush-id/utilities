@@ -12,7 +12,20 @@
       "require": "./dist/index.cjs",
       "import.types": "./dist/index.d.ts",
       "require.types": "./dist/index.d.cts"
-    }
+    },
+    "./actions": {
+      "import": "./dist/browser/actions/index.js",
+      "require": "./dist/browser/actions/index.cjs",
+      "import.types": "./dist/browser/actions/index.d.ts",
+      "require.types": "./dist/browser/actions/index.d.cts"
+    },
+    "./inputs": {
+      "import": "./dist/browser/inputs/index.js",
+      "require": "./dist/browser/inputs/index.cjs",
+      "import.types": "./dist/browser/inputs/index.d.ts",
+      "require.types": "./dist/browser/inputs/index.d.cts"
+    },
+    "./browser/*": "./dist/browser/*"
   },
   "directories": {
     "dist": "dist"

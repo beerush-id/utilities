@@ -1,5 +1,40 @@
 import { isArray, isDateString, isObject } from './inspector.js';
 
+export type TransformOptions = {
+  keys?: Record<string, string>;
+  values?: Record<string, (value: unknown, origin: Record<string, unknown>) => unknown>;
+  omittedKeys?: string[];
+};
+
+/**
+ * Transform the given object based on the provided options.
+ * @param {Record<string, unknown>} value
+ * @param {TransformOptions} options
+ * @returns {Record<string, unknown>}
+ */
+export function transform(value: Record<string, unknown>, options: TransformOptions) {
+  if (options.values) {
+    for (const [key, exec] of Object.entries(options.values)) {
+      value[key] = exec(value[key], value);
+    }
+
+    if (options.keys) {
+      for (const [key, mappedKey] of Object.entries(options.keys)) {
+        value[mappedKey] = value[key];
+        delete value[key];
+      }
+    }
+
+    if (options.omittedKeys) {
+      for (const key of options.omittedKeys) {
+        delete value[key];
+      }
+    }
+
+    return value;
+  }
+}
+
 /**
  * Convert the given string value to a proper type.
  * @param {string} value
